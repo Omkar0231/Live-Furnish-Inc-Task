@@ -18,11 +18,16 @@ request-method : POST
 Sample Form-data :
 
 {
+
     __*REQUIRED_VALUES*__
     'email'         : 'xxx@gmail.com',
+    
     'password'      : 'xxxx',
+    
     'first_name'    : 'xxxx',
+    
     'last_name'     : 'xxxx',
+    
     'mobileNo'      : '1234567890'(Only 10 digits),
     'address'       : 'xxxxx',
     __*OPTIONAL_VALUES*__
