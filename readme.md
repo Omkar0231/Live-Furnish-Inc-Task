@@ -65,6 +65,7 @@ Sample Form-data :
 
 
 __User Signout__
+
 link: http://localhost:8000/users/logout/
 
 request-method : POST
