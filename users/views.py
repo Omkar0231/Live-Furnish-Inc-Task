@@ -12,7 +12,6 @@ from .serializer import LoginSerializer, CreateUserSerializer
 from django.contrib.auth import login
 
 
-
 class SignUp(CreateAPIView):
     permission_classes = [~IsAuthenticated]
     serializer_class   = CreateUserSerializer
@@ -20,7 +19,9 @@ class SignUp(CreateAPIView):
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
-            serializer.create(serializer.validated_data)
+            user = serializer.create(serializer.validated_data)
+            user.is_active = True
+            user.save()
             return Response({'user':serializer.data},status=status.HTTP_201_CREATED)
         else:
             return Response({'error':serializer.errors},status.HTTP_400_BAD_REQUEST)
